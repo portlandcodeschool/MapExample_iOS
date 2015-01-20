@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search for places!" translatesAutoresizingMaskIntoConstraints="NO" id="cw2-ww-Nj0">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="ed5-hg-AUV"/>
+                                </connections>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jG-aQe">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="w5y-Ec-mJX"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W9e-jG-aQe" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="0kT-Gl-T6q"/>
+                            <constraint firstItem="W9e-jG-aQe" firstAttribute="top" secondItem="cw2-ww-Nj0" secondAttribute="bottom" id="3bM-7d-Fef"/>
+                            <constraint firstItem="W9e-jG-aQe" firstAttribute="leading" secondItem="cw2-ww-Nj0" secondAttribute="leading" id="OHw-yR-Z5t"/>
+                            <constraint firstItem="cw2-ww-Nj0" firstAttribute="trailing" secondItem="W9e-jG-aQe" secondAttribute="trailing" id="SM8-nE-CEM"/>
+                            <constraint firstItem="cw2-ww-Nj0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="c5F-t9-Bbs"/>
+                            <constraint firstItem="W9e-jG-aQe" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="lwM-dk-Lbq"/>
+                            <constraint firstAttribute="trailing" secondItem="cw2-ww-Nj0" secondAttribute="trailing" id="oSh-5s-4bV"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="map" destination="W9e-jG-aQe" id="EXW-EV-gN3"/>
+                        <outlet property="searchBar" destination="cw2-ww-Nj0" id="d3d-t1-7K1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
