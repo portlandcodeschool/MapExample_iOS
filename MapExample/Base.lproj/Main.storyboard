@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iUw-AJ-608">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--MapsAndPlaces-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -16,14 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search for places!" translatesAutoresizingMaskIntoConstraints="NO" id="cw2-ww-Nj0">
+                            <searchBar contentMode="redraw" misplaced="YES" placeholder="Search for places!" translatesAutoresizingMaskIntoConstraints="NO" id="cw2-ww-Nj0">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="ed5-hg-AUV"/>
                                 </connections>
                             </searchBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jG-aQe">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W9e-jG-aQe">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <connections>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="w5y-Ec-mJX"/>
@@ -41,14 +41,77 @@
                             <constraint firstAttribute="trailing" secondItem="cw2-ww-Nj0" secondAttribute="trailing" id="oSh-5s-4bV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MapsAndPlaces" id="qrw-Fq-pL5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="map" destination="W9e-jG-aQe" id="EXW-EV-gN3"/>
                         <outlet property="searchBar" destination="cw2-ww-Nj0" id="d3d-t1-7K1"/>
+                        <segue destination="qwL-hg-Vbj" kind="show" identifier="showPlaceDetail" id="vCt-MM-KQ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1185" y="258"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="zhg-c0-3qH">
+            <objects>
+                <viewController id="qwL-hg-Vbj" customClass="PlaceDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nxF-wh-q4U"/>
+                        <viewControllerLayoutGuide type="bottom" id="rRc-oM-ccb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lab-Ex-upS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hK-RN-uSf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4hK-RN-uSf" firstAttribute="leading" secondItem="lab-Ex-upS" secondAttribute="leading" id="3Ri-W7-Wvo"/>
+                            <constraint firstItem="4hK-RN-uSf" firstAttribute="top" secondItem="lab-Ex-upS" secondAttribute="top" id="Dja-6P-LMl"/>
+                            <constraint firstAttribute="trailing" secondItem="4hK-RN-uSf" secondAttribute="trailing" id="Gw3-U4-XCZ"/>
+                            <constraint firstItem="4hK-RN-uSf" firstAttribute="bottom" secondItem="rRc-oM-ccb" secondAttribute="top" id="qpn-1A-gNO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="j1K-qK-EJY">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="5Ei-X4-Dhg">
+                            <connections>
+                                <action selector="shareButtonPressed:" destination="qwL-hg-Vbj" id="62S-No-JGH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="webView" destination="4hK-RN-uSf" id="I5E-nc-Dr9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="way-Eb-dJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BBh-dH-DAI">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iUw-AJ-608" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oPZ-oN-Vei">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="2v1-b5-lGs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jpe-FS-t0u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="698" y="270"/>
         </scene>
     </scenes>
 </document>

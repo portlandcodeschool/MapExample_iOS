@@ -13,7 +13,8 @@
 
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
+@property (nonatomic, copy) NSString *googlePlacesID;
 
--(id) initWithTitle:(NSString *) annotationTitle andCoordinate:(CLLocationCoordinate2D) annotationCoordinate;
+-(id) initWithTitle:(NSString *) annotationTitle andCoordinate:(CLLocationCoordinate2D) annotationCoordinate andGooglePlacesID:(NSString *) placesID;
 
 @end

@@ -12,8 +12,21 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
+	<key>FacebookAppID</key>
+	<string>647671018671754</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb647671018671754</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookDisplayName</key>
+	<string>MapsAndPlaces</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This is my example application.</string>
 	<key>CFBundleShortVersionString</key>
